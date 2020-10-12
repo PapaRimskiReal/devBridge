@@ -121,7 +121,7 @@ function curry(value, a){
 
 function composeu(value, value_2){
   return (a) => {
-    return value(a) * value_2(a);
+    return value_2(value(a));
   };
 }
 
@@ -134,7 +134,21 @@ console.log("'7' - " + composeu(double, square)(3));
     addg(1)(2)(4)(8)();  // 15
 */
 
+function addg(a){
+  return function repeat(b) {
 
+    if (b === undefined) {
+      return a;
+    }
+
+    a += b;
+    return repeat;
+
+  };
+}
+
+console.log("'8' - " + addg(3)(4)(5)());
+console.log("'8' - " + addg(1)(2)(4)(8)());
 
 /*
     9. Write a function that will take a binary function and apply it to many invocations.
@@ -143,8 +157,21 @@ console.log("'7' - " + composeu(double, square)(3));
     applyg(mul)(1)(2)(4)(8)();    // 64
 */
 
+  function applyg(value){
+    return function first(a){
+      return function repeat(b){
+         if (b === undefined){
+        return a;
+      }
+        a = value(a,b);
+        return repeat;
+      };
+     
+    } ;
+  }
 
-
+  console.log("'9' - " + applyg(add)(3)(4)(5)());
+  console.log("'9' - " + applyg(mul)(1)(2)(4)(8)());
 /*
     10. Make a function that returns a function that will return the next fibonacci number.
 
@@ -156,3 +183,11 @@ console.log("'7' - " + composeu(double, square)(3));
     fib();    // 3  
     fib();    // 5
 */
+
+function fibonaccif(){
+  return () => {
+
+  }
+}
+
+console.log("'10' - " + "");
