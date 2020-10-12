@@ -183,11 +183,34 @@ console.log("'8' - " + addg(1)(2)(4)(8)());
     fib();    // 3  
     fib();    // 5
 */
+const fib = fibonaccif();
 
 function fibonaccif(){
-  return () => {
+  var numberBefore = 0;
+  var result = 0;
 
-  }
+  return () => {
+    if (numberBefore === 0) {
+      numberBefore++;
+      return result;
+    }
+
+     temp = result;
+     result = result + numberBefore;
+     numberBefore = temp;
+     
+     return result;
+
+  }; 
+  
 }
 
-console.log("'10' - " + "");
+console.log("'10' - " + fib());
+console.log("'10' - " + fib());
+console.log("'10' - " + fib());
+console.log("'10' - " + fib());
+console.log("'10' - " + fib());
+console.log("'10' - " + fib());
+console.log("'10' - " + fib());
+console.log("'10' - " + fib());
+console.log("'10' - " + fib());
