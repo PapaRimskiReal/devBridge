@@ -50,7 +50,7 @@ button {
     border-color: green;
 }
 
-.button-delete:hover {
+.button-delete:hover, .button-revert:hover {
     color: red;
     border-color: red;
 }
@@ -70,5 +70,14 @@ button {
 
 .add-todo-form input{
     flex-grow: 1;
+}
+
+.completed {
+  background-color: green;
+}
+
+.button-revert{
+  border-color:white;
+  color:white;
 }
 
